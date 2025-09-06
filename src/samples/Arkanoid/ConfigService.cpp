@@ -11,5 +11,4 @@ namespace Sample::Arkanoid
 	{
 		return _general;
 	}
-
 }

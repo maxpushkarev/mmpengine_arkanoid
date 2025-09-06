@@ -10,9 +10,7 @@ namespace Sample::Arkanoid
 	{
 		UserApp::Initialize();
 
-		{
-			const auto executor = GetDefaultStream()->CreateExecutor();
-		}
+		_configService = std::make_shared<SimpleConfigService>();
 	}
 
 }
