@@ -61,6 +61,12 @@ struct VertexOut {
 	float4 position [[position]];
 };
 
+struct InstanceData
+{
+    float4x4 l2w;
+    float4 color;
+};
+
 #endif
 
 #endif
