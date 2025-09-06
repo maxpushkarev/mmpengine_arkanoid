@@ -4,6 +4,7 @@
 #include <Arkanoid/FieldSystem.hpp>
 #include <Arkanoid/VisualSystem.hpp>
 #include <Arkanoid/RenderSystem.hpp>
+#include <Arkanoid/ColliderSystem.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -21,6 +22,7 @@ namespace Sample::Arkanoid
 		_worldService->CreateSystem<RoundSystem>(_worldService.get(), _configService.get());
 		_worldService->CreateSystem<InputSystem>(_worldService.get(), _configService.get(), GetInput().get());
 		_worldService->CreateSystem<FieldSystem>(_worldService.get(), _configService.get());
+		_worldService->CreateSystem<ColliderSystem>(_worldService.get(), _configService.get());
 
 		_worldService->CreateSystem<VisualSystem>(_worldService.get(), _configService.get(), GetContext());
 		_worldService->CreateSystem<RenderSystem>(_worldService.get(), _configService.get(), GetContext(), GetDefaultStream());

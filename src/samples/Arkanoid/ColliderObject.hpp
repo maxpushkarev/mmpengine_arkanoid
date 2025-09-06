@@ -1,5 +1,6 @@
 #pragma once
 #include <Arkanoid/GameObject.hpp>
+#include <Arkanoid/VisualObject.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -7,19 +8,21 @@ namespace Sample::Arkanoid
 	{
 	};
 
-	class Brick final : public ColliderObject
+	class Brick final : public ColliderObject, public VisualObject
+	{
+	public:
+		bool hit = false;
+	};
+
+	class Wall final : public ColliderObject, public VisualObject
 	{
 	};
 
-	class Wall final : public ColliderObject
+	class Cart final : public ColliderObject, public VisualObject
 	{
 	};
 
-	class Cart final : public ColliderObject
-	{
-	};
-
-	class Ball final : public ColliderObject
+	class Ball final : public ColliderObject, public VisualObject
 	{
 	public:
 		MMPEngine::Core::Vector2Float movementDirection;
