@@ -30,6 +30,7 @@ namespace Sample::Arkanoid
 
 				field->node = std::make_shared<MMPEngine::Core::Node>();
 				field->node->localTransform.scale = { fieldSize.x, fieldSize.y, 1.0f };
+				field->node->localTransform.position.z += 0.1f; //to guarantee correct depth order
 				field->instanceData.color = _config->GetFieldConfig().color;
 
 				_world->AddObject(std::move(field));

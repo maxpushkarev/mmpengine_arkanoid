@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <Arkanoid/GameObject.hpp>
 
 namespace Sample::Arkanoid
@@ -14,5 +15,6 @@ namespace Sample::Arkanoid
 		};
 
 		InstanceData instanceData {};
+		std::optional<std::size_t> instanceIndex;
 	};
 }
