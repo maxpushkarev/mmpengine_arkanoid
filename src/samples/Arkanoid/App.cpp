@@ -11,6 +11,7 @@ namespace Sample::Arkanoid
 		UserApp::Initialize();
 
 		_configService = std::make_shared<SimpleConfigService>();
+		_worldService = std::make_shared<WorldService>();
 	}
 
 	void App::OnUpdate(std::float_t dt)
@@ -23,17 +24,22 @@ namespace Sample::Arkanoid
 		while (_state.simulationTime - fixedDt >= 0)
 		{
 			_state.simulationTime -= fixedDt;
+			_worldService->Simulate(fixedDt);
 		}
+
+		_worldService->Update(dt);
 	}
 
 	void App::OnNativeWindowUpdated()
 	{
 		UserApp::OnNativeWindowUpdated();
+		_worldService->OnViewportUpdated();
 	}
 
 	void App::OnRender()
 	{
 		UserApp::OnRender();
+		_worldService->OnRender();
 	}
 
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <Feature/App.hpp>
 #include <Arkanoid/ConfigService.hpp>
+#include <Arkanoid/WorldService.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -21,5 +22,6 @@ namespace Sample::Arkanoid
 	private:
 		State _state;
 		std::shared_ptr<IConfigService> _configService;
+		std::shared_ptr<WorldService> _worldService;
 	};
 }
