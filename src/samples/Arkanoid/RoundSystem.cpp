@@ -12,6 +12,7 @@ namespace Sample::Arkanoid
 	{
 		const auto& objects = this->ObjectSystem<BaseObject>::_objectsMap;
 		const auto& rounds = this->ObjectSystem<RoundObject>::_objectsMap;
+		const auto& balls = this->ObjectSystem<Ball>::_objectsMap;
 
 		if (rounds.empty())
 		{
@@ -29,7 +30,20 @@ namespace Sample::Arkanoid
 
 		if (round->state == RoundObject::State::Running)
 		{
-			//TODO: check finish
+			bool shouldFinish = true;
+			for (const auto& b : balls)
+			{
+				if (b.second->node->localTransform.position.y > -_config->GetFieldConfig().size.y * 0.5f)
+				{
+					shouldFinish = false;
+				}
+			}
+
+			if (shouldFinish)
+			{
+				round->state = RoundObject::State::Finish;
+			}
+
 			return;
 		}
 
