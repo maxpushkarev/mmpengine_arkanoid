@@ -153,7 +153,8 @@ namespace Sample::Arkanoid
 		if (t >= 0 && t <= 1 && u >= 0 && u <= 1) {
 			res.Position = {
 				p1.x + t * (p2.x - p1.x),
-				p1.y + t * (p2.y - p1.y)
+				p1.y + t * (p2.y - p1.y),
+                0.0f
 			};
 			return true;
 		}
