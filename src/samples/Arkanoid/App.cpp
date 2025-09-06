@@ -15,7 +15,7 @@ namespace Sample::Arkanoid
 
 	void App::OnUpdate(std::float_t dt)
 	{
-		App::OnUpdate(dt);
+		UserApp::OnUpdate(dt);
 
 		_state.simulationTime += dt;
 
