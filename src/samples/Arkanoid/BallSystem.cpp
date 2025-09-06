@@ -97,7 +97,6 @@ namespace Sample::Arkanoid
 
 						_globalContext->math->Normalize(b.second->movementDirection);
 						b.second->node->localTransform.position = collisionInfo.Position;
-						b.second->node->localTransform.position.z = 0.0f;
 
 						if (bricks.find(c.first) != bricks.cend())
 						{
@@ -112,6 +111,8 @@ namespace Sample::Arkanoid
 				{
 					b.second->node->localTransform.position = nextBallPosition;
 				}
+
+				b.second->node->localTransform.position.z = 0.0f;
 			}
 		}
 
