@@ -15,6 +15,9 @@ namespace Sample::Arkanoid
 	public:
 		App(const std::shared_ptr<MMPEngine::Feature::BaseLogger>& logger);
 		void Initialize() override;
+		void OnNativeWindowUpdated() override;
+		void OnUpdate(std::float_t dt) override;
+		void OnRender() override;
 	private:
 		State _state;
 		std::shared_ptr<IConfigService> _configService;
