@@ -6,6 +6,7 @@
 #include <Arkanoid/RenderSystem.hpp>
 #include <Arkanoid/ColliderSystem.hpp>
 #include <Arkanoid/CartSystem.hpp>
+#include <Arkanoid/BallSystem.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -25,6 +26,7 @@ namespace Sample::Arkanoid
 		_worldService->CreateSystem<FieldSystem>(_worldService.get(), _configService.get());
 		_worldService->CreateSystem<ColliderSystem>(_worldService.get(), _configService.get());
 		_worldService->CreateSystem<CartSystem>(_worldService.get(), _configService.get());
+		_worldService->CreateSystem<BallSystem>(_worldService.get(), _configService.get(), GetContext());
 
 		_worldService->CreateSystem<VisualSystem>(_worldService.get(), _configService.get(), GetContext());
 		_worldService->CreateSystem<RenderSystem>(_worldService.get(), _configService.get(), GetContext(), GetDefaultStream());

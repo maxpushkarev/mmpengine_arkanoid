@@ -4,6 +4,12 @@
 
 namespace Sample::Arkanoid
 {
+	struct CollisionInfo final
+	{
+		MMPEngine::Core::Vector3Float Normal;
+		MMPEngine::Core::Vector3Float Position;
+	};
+
 	class ColliderObject : public virtual GameObject
 	{
 	};
@@ -25,6 +31,6 @@ namespace Sample::Arkanoid
 	class Ball final : public ColliderObject, public VisualObject
 	{
 	public:
-		MMPEngine::Core::Vector2Float movementDirection;
+		MMPEngine::Core::Vector3Float movementDirection;
 	};
 }
