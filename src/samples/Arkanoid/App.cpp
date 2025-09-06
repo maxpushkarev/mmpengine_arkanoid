@@ -2,6 +2,7 @@
 #include <Arkanoid/InputSystem.hpp>
 #include <Arkanoid/RoundSystem.hpp>
 #include <Arkanoid/FieldSystem.hpp>
+#include <Arkanoid/VisualSystem.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -19,6 +20,8 @@ namespace Sample::Arkanoid
 		_worldService->CreateSystem<RoundSystem>(_worldService.get(), _configService.get());
 		_worldService->CreateSystem<InputSystem>(_worldService.get(), _configService.get(), GetInput().get());
 		_worldService->CreateSystem<FieldSystem>(_worldService.get(), _configService.get());
+
+		_worldService->CreateSystem<VisualSystem>(_worldService.get(), _configService.get(), GetContext());
 	}
 
 	void App::OnUpdate(std::float_t dt)
