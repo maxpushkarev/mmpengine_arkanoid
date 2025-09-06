@@ -1,7 +1,7 @@
 #pragma once
 #include <Feature/App.hpp>
 
-namespace Sample::Empty
+namespace Sample::Arkanoid
 {
 	class App : public MMPEngine::Feature::UserApp
 	{

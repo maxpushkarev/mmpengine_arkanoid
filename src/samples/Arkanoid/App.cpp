@@ -1,6 +1,6 @@
-#include <Empty/App.hpp>
+#include <Arkanoid/App.hpp>
 
-namespace Sample::Empty
+namespace Sample::Arkanoid
 {
 	App::App(const std::shared_ptr<MMPEngine::Feature::BaseLogger>& logger) : UserApp(logger)
 	{
