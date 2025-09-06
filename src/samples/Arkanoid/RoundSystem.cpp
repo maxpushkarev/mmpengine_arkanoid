@@ -41,7 +41,7 @@ namespace Sample::Arkanoid
 
 			if (shouldFinish)
 			{
-				round->state = RoundObject::State::Finish;
+				//round->state = RoundObject::State::Finish;
 			}
 
 			return;

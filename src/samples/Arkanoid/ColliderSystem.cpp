@@ -84,7 +84,7 @@ namespace Sample::Arkanoid
 						brick->hit = false;
 						brick->node = std::make_shared<MMPEngine::Core::Node>();
 						brick->node->localTransform.position = { brickX, brickY, 0.0f };
-						brick->node->localTransform.scale ={ brickCfg.size.x, brickCfg.size.y };
+						brick->node->localTransform.scale ={ brickCfg.size.x, brickCfg.size.y, 1.0f };
 						brick->instanceData.color = brickCfg.colors.at(dist(gen));
 
 						_world->AddObject(std::move(brick));
