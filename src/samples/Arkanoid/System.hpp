@@ -5,9 +5,13 @@
 
 namespace Sample::Arkanoid
 {
+	class WorldService;
+	class IConfigService;
+
 	class BaseSystem
 	{
 	public:
+		BaseSystem(WorldService* world, const IConfigService* config);
 		BaseSystem();
 		virtual ~BaseSystem();
 		BaseSystem(const BaseSystem&) = delete;
@@ -18,6 +22,8 @@ namespace Sample::Arkanoid
 		virtual void TryAttachObject(BaseObject* object) = 0;
 		virtual void TryDetachObject(BaseObject::IdType id) = 0;
 	protected:
+		WorldService* const _world = nullptr;
+		const IConfigService* const _config = nullptr;
 	};
 
 	class BaseSimulationSystem : public virtual BaseSystem

@@ -1,4 +1,6 @@
 #include <Arkanoid/App.hpp>
+#include <Arkanoid/InputSystem.hpp>
+#include <Arkanoid/RoundSystem.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -12,11 +14,19 @@ namespace Sample::Arkanoid
 
 		_configService = std::make_shared<SimpleConfigService>();
 		_worldService = std::make_shared<WorldService>();
+
+		_worldService->CreateSystem<RoundSystem>(_worldService.get(), _configService.get());
+		_worldService->CreateSystem<InputSystem>(_worldService.get(), _configService.get(), GetInput().get());
 	}
 
 	void App::OnUpdate(std::float_t dt)
 	{
 		UserApp::OnUpdate(dt);
+
+		if (GetInput()->IsButtonPressed(MMPEngine::Feature::KeyButton::Esc))
+		{
+			_state.readyToFinish = true;
+		}
 
 		_state.simulationTime += dt;
 
@@ -42,4 +52,8 @@ namespace Sample::Arkanoid
 		_worldService->OnRender();
 	}
 
+	bool App::IsReadyToFinish() const
+	{
+		return _state.readyToFinish;
+	}
 }

@@ -12,6 +12,7 @@ namespace Sample::Arkanoid
 		{
 		public:
 			std::float_t simulationTime = 0;
+			bool readyToFinish = false;
 		};
 	public:
 		App(const std::shared_ptr<MMPEngine::Feature::BaseLogger>& logger);
@@ -19,6 +20,7 @@ namespace Sample::Arkanoid
 		void OnNativeWindowUpdated() override;
 		void OnUpdate(std::float_t dt) override;
 		void OnRender() override;
+		bool IsReadyToFinish() const override;
 	private:
 		State _state;
 		std::shared_ptr<IConfigService> _configService;
