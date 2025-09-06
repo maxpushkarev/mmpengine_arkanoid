@@ -161,7 +161,7 @@ namespace Sample::Arkanoid
 			const auto depthStencilTexture = std::make_shared<MMPEngine::Frontend::DepthStencilTargetTexture>(
 				_globalContext,
 				MMPEngine::Core::DepthStencilTargetTexture::Settings{
-					MMPEngine::Core::DepthStencilTargetTexture::Settings::Format::Depth32,
+					MMPEngine::Core::DepthStencilTargetTexture::Settings::Format::Depth16,
 						std::make_tuple(1.0f, 0),
 					{MMPEngine::Core::TargetTexture::Settings::Antialiasing::MSAA_0, _globalContext->windowSize, "depth/stencil"}
 				});
@@ -173,7 +173,7 @@ namespace Sample::Arkanoid
 			}
 
 			const auto cameraNode = std::make_shared<MMPEngine::Core::Node>();
-			cameraNode->localTransform.position = { 0.0f, 0.0f, -5.0f };
+			cameraNode->localTransform.position = { 0.0f, 0.0f, -2.0f };
 
 			MMPEngine::Core::OrthographicCamera::OrthographicSettings orthoSettings{};
 			const auto fieldSize = _config->GetFieldConfig().size;
@@ -184,7 +184,7 @@ namespace Sample::Arkanoid
 
 			const auto camera = std::make_shared<MMPEngine::Frontend::OrthographicCamera>(
 				_globalContext,
-				MMPEngine::Core::OrthographicCamera::Settings{ orthoSettings, {3.0f, 7.0f} },
+				MMPEngine::Core::OrthographicCamera::Settings{ orthoSettings, {1.0f, 3.0f} },
 				cameraNode,
 				MMPEngine::Core::Camera::Target{
 					{ {screen->GetBackBuffer(), true} },

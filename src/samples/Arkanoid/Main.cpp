@@ -44,7 +44,7 @@ namespace
 std::int32_t WINAPI WinMain(HINSTANCE hInstance, HINSTANCE,
 	PSTR, std::int32_t)
 {
-	return Run(MMPEngine::Core::BackendType::Vulkan);
+	return Run(MMPEngine::Core::BackendType::Dx12);
 }
 #endif
 
