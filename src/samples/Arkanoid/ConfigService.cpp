@@ -8,6 +8,9 @@ namespace Sample::Arkanoid
 
 		_field.size = { 10.0f, 10.0f };
 		ParseHexArgbColor(0x0324fc, _field.color);
+
+		_camera.multiplier = 1.125f;
+		ParseHexArgbColor(0x00000000, _camera.backgroundColor);
 	}
 
 	void SimpleConfigService::ParseHexArgbColor(std::int32_t hexColor, MMPEngine::Core::Vector4Float& res)
@@ -33,4 +36,8 @@ namespace Sample::Arkanoid
 		return _field;
 	}
 
+	const IConfigService::CameraConfig& SimpleConfigService::GetCameraConfig() const
+	{
+		return _camera;
+	}
 }

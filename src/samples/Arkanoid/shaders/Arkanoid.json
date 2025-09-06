@@ -1,0 +1,53 @@
+{
+  "shaderPack": {
+    "Dx12": {
+		"byteCodeFiles": [
+			{
+				"id" : "VertexQuad",
+				"type" : "Vertex",
+				"entryPoint" : "EntryPoint",
+				"path": "Vertex_Quad.cso"
+			},
+			{
+				"id" : "PixelQuad",
+				"type" : "Pixel",
+				"entryPoint" : "EntryPoint",
+				"path": "Pixel_Quad.cso"
+			}
+		]
+    },
+    "Vulkan": {
+		"byteCodeFiles": [
+			{
+				"id" : "VertexQuad",
+				"type" : "Vertex",
+				"entryPoint" : "main",
+				"path": "Vertex_Quad.vert.spv"
+			},
+			{
+				"id" : "PixelQuad",
+				"type" : "Pixel",
+				"entryPoint" : "main",
+				"path": "Pixel_Quad.frag.spv"
+			}			
+		]
+    },
+    "Metal": {
+      "lib": {
+        "path": "./Arkanoid.metallib",
+        "shaders": [
+            {
+              "id": "VertexQuad",
+              "type": "Vertex",
+              "entryPoint": "VertexQuad"
+            },
+            {
+              "id": "PixelQuad",
+              "type": "Pixel",
+              "entryPoint": "PixelQuad"
+            }
+        ]
+      }
+    }
+  }
+}

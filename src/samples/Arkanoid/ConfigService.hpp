@@ -19,8 +19,15 @@ namespace Sample::Arkanoid
 			MMPEngine::Core::Vector4Float color;
 		};
 
+		struct CameraConfig final
+		{
+			MMPEngine::Core::Vector4Float backgroundColor;
+			std::float_t multiplier;
+		};
+
 		virtual const GeneralConfig& GetGeneralConfig() const = 0;
 		virtual const FieldConfig& GetFieldConfig() const = 0;
+		virtual const CameraConfig& GetCameraConfig() const = 0;
 	};
 
 	class SimpleConfigService final : public IConfigService
@@ -29,9 +36,11 @@ namespace Sample::Arkanoid
 		SimpleConfigService();
 		const GeneralConfig& GetGeneralConfig() const override;
 		const FieldConfig& GetFieldConfig() const override;
+		const CameraConfig& GetCameraConfig() const override;
 	private:
 		static void ParseHexArgbColor(std::int32_t hexColor, MMPEngine::Core::Vector4Float& res);
 		GeneralConfig _general;
 		FieldConfig _field;
+		CameraConfig _camera;
 	};
 }

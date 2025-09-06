@@ -20,21 +20,18 @@ namespace Sample::Arkanoid
 
 		const auto round = rounds.begin()->second;
 
-		if (round->state == RoundObject::State::Start)
+		if (fields.empty())
 		{
-			if (fields.empty())
-			{
-				auto field = std::make_unique<FieldObject>();
+			auto field = std::make_unique<FieldObject>();
 
-				const auto& fieldSize = _config->GetFieldConfig().size;
+			const auto& fieldSize = _config->GetFieldConfig().size;
 
-				field->node = std::make_shared<MMPEngine::Core::Node>();
-				field->node->localTransform.scale = { fieldSize.x, fieldSize.y, 1.0f };
-				field->node->localTransform.position.z += 0.1f; //to guarantee correct depth order
-				field->instanceData.color = _config->GetFieldConfig().color;
+			field->node = std::make_shared<MMPEngine::Core::Node>();
+			field->node->localTransform.scale = { fieldSize.x, fieldSize.y, 1.0f };
+			field->node->localTransform.position.z += 0.1f; //to guarantee correct depth order
+			field->instanceData.color = _config->GetFieldConfig().color;
 
-				_world->AddObject(std::move(field));
-			}
+			_world->AddObject(std::move(field));
 		}
 	}
 

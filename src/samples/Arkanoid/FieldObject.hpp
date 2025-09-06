@@ -3,7 +3,7 @@
 
 namespace Sample::Arkanoid
 {
-	class FieldObject : public VisualObject
+	class FieldObject final : public VisualObject
 	{
 	};
 }

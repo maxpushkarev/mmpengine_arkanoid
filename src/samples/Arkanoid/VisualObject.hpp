@@ -15,6 +15,7 @@ namespace Sample::Arkanoid
 		};
 
 		InstanceData instanceData {};
+		std::shared_ptr<MMPEngine::Core::BaseTask> instanceDataTask;
 		std::optional<std::size_t> instanceIndex;
 	};
 }

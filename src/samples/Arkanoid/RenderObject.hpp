@@ -4,7 +4,7 @@
 #include <Arkanoid/VisualObject.hpp>
 #include <Core/Mesh.hpp>
 #include <Core/Shader.hpp>
-#include <Core/Buffer.hpp>
+#include <Frontend/Buffer.hpp>
 
 namespace Sample::Arkanoid
 {
@@ -19,7 +19,7 @@ namespace Sample::Arkanoid
 		std::shared_ptr<MMPEngine::Core::ShaderPack> shaderPack;
 		std::shared_ptr<MMPEngine::Core::Shader> vertexShader;
 		std::shared_ptr<MMPEngine::Core::Shader> pixelShader;
-		std::shared_ptr<MMPEngine::Core::UploadBuffer> instanceBuffer;
+		std::shared_ptr<MMPEngine::Frontend::StructuredUploadBuffer<VisualObject::InstanceData>> instanceBuffer;
 		std::shared_ptr<MMPEngine::Core::BaseTask> resetInstanceBufferTask;
 	private:
 		VisualObject::InstanceData _defaultInstanceData{};
